@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "private": true,
   "license": "ISC",
@@ -13,5 +13,20 @@
     "get-port": "4.0.0",
     "koa": "2.5.2",
     "koa-static": "5.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "jest-fetch-mock": "^2.1.1",
+    "prettier": "^1.16.4"
+  },
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./jest.setup.js"
+    ]
   }
 }
