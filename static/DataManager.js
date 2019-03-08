@@ -10,7 +10,7 @@ export default class DataManager {
     source.toLowerCase().includes(search.toLowerCase());
 
   static getValue = path => channel =>
-    path.split(".").reduce((p, c) => p[c], channel);
+    path.split('.').reduce((p, c) => p[c], channel);
 
   download = async generateViewModel => {
     const response = await fetch(this.url);

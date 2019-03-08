@@ -1,27 +1,24 @@
 import DataManager from '../static/DataManager';
 
-test("asd", () => {
+test('should accept element in filtering', () => {
   const instance = new DataManager({});
   const mock = jest.fn();
   mock.mockReturnValue(() => true);
   DataManager.compareStrings = mock.bind();
-  instance.filterValue = 'asd';
-
-  expect(instance.filter({ title: 'asd' })).toBe(true);
+  instance.filterValue = 'Hello my Reviewer';
+  expect(instance.filter({ title: 'Hello my Reviewer' })).toBe(true);
 });
 
-test("asd", () => {
+test('should not accept element in filtering', () => {
   const instance = new DataManager({});
   const mock = jest.fn();
   mock.mockReturnValue(() => false);
   DataManager.compareStrings = mock.bind();
   instance.filterValue = 'asd';
-
   expect(instance.filter({ title: 'asd' })).toBe(false);
 });
 
-test("asd", () => {
+test('should accept, because filer value is undefined', () => {
   const instance = new DataManager({});
-
   expect(instance.filter({ title: 'asd' })).toBe(true);
 });

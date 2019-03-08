@@ -1,12 +1,12 @@
 import translate from "./locales.js";
 
 const generatePartialTemplateStats = statistics => `
-    <ul class="stats">
+    <ul class="channels-list__item-stats">
         ${Object.entries(statistics)
           .map(
             ([key, value]) => `
-            <li class="stats__element">
-                <h2 class="stats_label">${translate(key)}:</h2>
+            <li class="channels-list__item-stats__item">
+                <h2 class="channels-list__item-stats__item-label">${translate(key)}:</h2>
                 ${value.toLocaleString("en-GB")}
             </li>`
           )
@@ -14,19 +14,24 @@ const generatePartialTemplateStats = statistics => `
     </ul>
 `;
 
-//TODO KW skalowanie obrazka
-//TODO KW sprawdzic BEM i czy podkreślinik są podwójne
 export default ({title, customUrl, thumbnails, statistics}) => `
     <li>
-        <a href="${customUrl}" class="channels_channel" title="${title}" target="_blank">
-            <figure class="channel__figure">
-                <img class="channel__figure-img" srcset="${thumbnails.high.url},
+        <a href="${customUrl}" 
+            class="channels-list__item"
+            title="${title}"
+            role="button"
+            target="_blank"
+        >
+            <figure class="channels-list__item-logo">
+                <img class="channels-list__item-logo-img " srcset="${thumbnails.high.url},
                     ${thumbnails.medium.url} 2x"
                     src="${thumbnails.medium.url}"
                     alt="${title}"
                 />
             </figure>
-            <h1 class="channel__title">${title}</h1>
+            <h1 class="channels-list__item-title">
+                ${title}
+            </h1>
             ${generatePartialTemplateStats(statistics)}
         </a>
     </li>

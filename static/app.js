@@ -3,7 +3,7 @@ import translate from './locales.js';
 import view from './view.js';
 import model from './model.js';
 
-const $body = document.querySelector('.channels');
+const $body = document.querySelector('.channels-list');
 const $filterInput = document.querySelector('.filter__input');
 const $categories = Array.from(document.querySelectorAll('[name="sort"]'));
 const $clearBtn = document.querySelector('.sort button');
@@ -20,7 +20,7 @@ const defaultSort = $categories.find(x => x.checked).dataset.field;
     const data = dataManager
       .getData()
       .map(view)
-      .join("");
+      .join('');
     $body.innerHTML = data || translate('noResults');
   };
 

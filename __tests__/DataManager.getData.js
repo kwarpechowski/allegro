@@ -1,6 +1,6 @@
 import DataManager from '../static/DataManager';
 
-test("should return filtered data", () => {
+test('should return filtered data', () => {
   const instance = new DataManager({});
   instance.filter = jest.fn(() => true);
   instance.sort = jest.fn();
@@ -11,7 +11,7 @@ test("should return filtered data", () => {
   expect(instance.sort).toHaveBeenCalledTimes(2);
 });
 
-test("should return empty array", () => {
+test('should return empty array', () => {
   const instance = new DataManager({});
   instance.filter = jest.fn(() => true);
   instance.sort = jest.fn();
